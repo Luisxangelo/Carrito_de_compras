@@ -2,6 +2,7 @@ function cart( db, printproducts){
     let cart=[];
 //elementos del Doom
     const productsDOM= document.querySelector(".products_container")
+    console.log(db)
     const notifyDom = document.querySelector(".notify")
     const cartDom = document.querySelector(".cart_body")
     const countDom = document.querySelector(".cart_count_item")
@@ -23,7 +24,11 @@ function cart( db, printproducts){
             notifyDom.classList.remove("show_notify")
         }else{
             for(const item of cart){
+
                 const product = db.find ( p=> p.id === item.id)
+                console.log(item)
+                console.log(product)
+
                 htmlcart += `
                 <article class="article">
                 <div class="article_image">
@@ -33,16 +38,16 @@ function cart( db, printproducts){
                     <h3 class="article_title">${product.name}</h3>
                     <span class="article_price">$${product.price}</span>
                     <div class="article_quantity">
-                        <button type="button" class="article_quantity_btn article_minus">
-                            <i class="bx bx-minus" data.id="${item.id}"></i>
+                        <button type="button" class="article_quantity_btn article_minus" data-id="${item.id}">
+                            <i class="bx bx-minus"></i>
                         </button>
                         <span class="article_quantity_text">${item.qty}</span>
-                        <button type="button" class="article_quantity_btn article_plus">
-                            <i class="bx bx-plus" data.id="${item.id}></i>
+                        <button type="button" class="article_quantity_btn article_plus" data-id="${item.id}">
+                            <i class="bx bx-plus"></i>
                         </button>
                     </div>
-                    <button type="button" class="article_btn remove_from_cart">
-                        <i class="bx bx-trash data.id="${item.id}"></i>
+                    <button type="button" class="article_btn remove_from_cart" data-id="${item.id}">
+                        <i class="bx bx-trash"></i>
                     </button>
                 </div>
             </article>
@@ -60,7 +65,7 @@ function cart( db, printproducts){
     function addtocart(id , qty = 1){
         const itemfinded = cart.find(i => i.id === id)
         if(itemfinded)  {
-            itemfinded.qty += qty
+            itemfinded.qty++
         }else{
             cart.push({id, qty})
         }
@@ -106,9 +111,12 @@ function cart( db, printproducts){
 
             productfinded.quantity -= item.qty
         }
-    }
+        cart = []
+        printcart()
+        printproducts()
+        window.alert("Gracias por su compra")
 
-    printcart()
+    }
     //eventos
 
     productsDOM.addEventListener("click", function(e){
@@ -126,8 +134,8 @@ function cart( db, printproducts){
             const id = +e.target.closest(".article_plus").dataset.id
             addtocart(id)
         }
-        if(e.target.closest(".removefromcart")){
-            const id = +e.target.closest(".removefromcart").dataset.id
+        if(e.target.closest(".remove_from_cart")){
+            const id = +e.target.closest(".remove_from_cart").dataset.id
             deletefromcart(id)
         }
     })

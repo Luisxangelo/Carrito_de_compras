@@ -12,7 +12,7 @@ function printproducts(){
             <img src="${product.image}" alt="${product.name}">
         </div>
         <div class="product_content">
-            <button type="button" class="product_btn add_to_cart" data_id=${product.id}>
+            <button type="button" class="product_btn add_to_cart" data-id=${product.id}>
                 <i class='bx bx-cart-add'></i>
             </button>
             <span class="product_price">$${product.price}</span>
