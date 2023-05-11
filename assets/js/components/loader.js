@@ -4,3 +4,4 @@ function loader(){
         loader.classList.add('loader_hidden')
     })
 }
+export default loader
