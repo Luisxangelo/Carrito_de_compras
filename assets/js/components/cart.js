@@ -1,5 +1,5 @@
 function cart( db, printproducts){
-    let cart=[]
+    let cart=[];
 //elementos del Doom
     const productsDOM= document.querySelector(".products_container")
     const notifyDom = document.querySelector(".notify")
@@ -13,7 +13,6 @@ function cart( db, printproducts){
     function printcart(){
         let htmlcart= ""
 
-
         if(cart.length === 0 ){
             htmlcart+=` 
             <div class="cart_empty">
@@ -24,7 +23,7 @@ function cart( db, printproducts){
             notifyDom.classList.remove("show_notify")
         }else{
             for(const item of cart){
-                const product = db.find ( p => p.id === item.id)
+                const product = db.find ( p=> p.id === item.id)
                 htmlcart += `
                 <article class="article">
                 <div class="article_image">
@@ -51,6 +50,7 @@ function cart( db, printproducts){
             }
             notifyDom.classList.add("show_notify")
         }
+
         cartDom.innerHTML = htmlcart
         notifyDom.innerHTML =showitemcounts()
         countDom.innerHTML = showitemcounts()
