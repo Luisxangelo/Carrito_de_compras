@@ -34,6 +34,16 @@
     --z-modal: 200;
 }
 
+body.dark{
+    
+    --primary-color: hsl(240, 3%, 76%);
+    --body-color: hsl(60, 14%, 55%);
+    --text-color: hsl(80, 13%, 87%);
+    --title-color: hsl(249, 4%, 69%);
+    --bg-color: hsl(60, 1%, 18%);
+    --card-color: hsl(240, 1%, 45%);
+}
+
 @media (min-width: 992px){
     :root{
     --big-font: 2.5rem;
@@ -87,6 +97,7 @@ h3{
 body{
     background-color: var(--bg-color);
 }
+
 
 ul,ol{
     list-style: none; 

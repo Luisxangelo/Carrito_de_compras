@@ -2,7 +2,6 @@ function cart( db, printproducts){
     let cart=[];
 //elementos del Doom
     const productsDOM= document.querySelector(".products_container")
-    console.log(db)
     const notifyDom = document.querySelector(".notify")
     const cartDom = document.querySelector(".cart_body")
     const countDom = document.querySelector(".cart_count_item")
@@ -139,5 +138,7 @@ function cart( db, printproducts){
             deletefromcart(id)
         }
     })
+
+  
 }
 export default cart
