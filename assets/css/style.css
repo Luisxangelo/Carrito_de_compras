@@ -1,12 +1,12 @@
 :root{
     --header-height: 60px;
 
-    --primary-color: hsl(354,78%,60%);
-    --body-color: hsl(206,4%,97%);
-    --text-color: hsl(0,0%,20%);
-    --title-color: hsl(0,0%,10%);
-    --bg-color: hsl(0,0%,100%);
-    --card-color: hsl(0,0%,90%);
+    --primary-color: hsl(244, 68%, 51%);
+    --body-color: hsl(58, 57%, 72%);
+    --text-color: hsl(80, 12%, 15%);
+    --title-color: hsl(248, 51%, 53%);
+    --bg-color: hsl(56, 49%, 65%);
+    --card-color: hsl(240, 37%, 72%);
 
     --body-font:'Lato', sans-serif;
     --title-font:'Poppins', sans-serif;
@@ -78,6 +78,14 @@ h1,h2,h3,h4,h5,h6{
     font-family: var(--title-font);
     font-weight: var(--font-medio);
     color: var(--title-color);
+}
+h3{
+    grid-column: span 4;
+    font-size: var(--small-font);
+
+}
+body{
+    background-color: var(--bg-color);
 }
 
 ul,ol{
@@ -223,6 +231,9 @@ margin: 0 1rem;
     justify-content: space-between;
     align-items: center;
 }
+.nav_link{
+    color: var(--primary-color);
+}
 .nav_logo{
     display: flex;
     align-items: center;
@@ -364,7 +375,7 @@ margin: 0 1rem;
     font-size: 1.25rem;
     transition: background-color .3s ease-in-out , color .3s ease-in-out;
 }
-.product_btn:hover{
+.product_btn:hover {
     background-color: var(--primary-color);
     color: var(--bg-color);
 }
@@ -389,11 +400,17 @@ margin: 0 1rem;
 }
 .footer_title{
     margin-bottom: var(--sp-0-75);
+    text-align: center;
+}
+.footer_text{
+    margin-bottom: var(--sp-0-75);
+    text-align: center;
 }
 .footer_social{
     display: flex;
     align-items: center;
     gap: var(--sp-1-5);
+    padding-left: 33%;    
 }
 .footer_link{
     display: flex;
@@ -406,6 +423,7 @@ margin: 0 1rem;
     border-radius: 50%;
     font-size: var(--sp-1-5);
     transition: color .3s ease-in-out, background-color .3s ease-in-out;
+    
 }
 .footer_link:hover{
     color: var(--title-color);
